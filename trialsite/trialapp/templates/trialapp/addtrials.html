@@ -1,0 +1,39 @@
+{% extends "trialapp/base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'trialapp/style.css' %}">
+
+
+{% block content %}
+<div class="container">
+ <form method="POST">
+     {%csrf_token%}
+     	<label>Organiser</label>
+		<input class="form-control" disabled type="text" name="organiser" value={{user}}>
+		<label>Operator</label>
+		<select  name="optr" class="form-control">
+			<option>Select Operator</option>
+			{% for row in rows %}
+			    <option value="{{ row.username }}">{{ row.username }}</option>
+			{% endfor %}
+		</select>
+		<label>Title</label>
+		{{form.title}}
+		<label>Address</label>		
+		{{form.address}}
+		<label>City</label>
+		{{form.city}}
+		<label>Country</label>
+		{{form.country}}
+		<label>Pincode</label>
+		{{form.pincode}}
+		<label>Discription</label>
+		{{form.discription}}
+		<label>Email</label>
+		{{form.email}}
+		
+		
+     <input type="submit" class="btn bg-success btn-lg font-weight-bold mt-1" value="SUBMIT">
+     <input type="reset" class="btn bg-success btn-lg font-weight-bold mt-1" value="RESET">
+ </form>
+</div>
+{% endblock content %}

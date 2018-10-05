@@ -1,0 +1,106 @@
+{% extends "trialapp/base.html" %}
+
+{% block content %}
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href=" {% url 'trialapp:dashboard' %}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Index</span>
+          </a>
+        </li>
+       <li class="nav-item active">
+          <a class="nav-link" href="login/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Login</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="signup/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Sign Up</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="patienttrials/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Trials</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="investigatorsignup/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Investigator Signup</span>
+          </a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          
+
+          <!-- Area Chart Example-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-chart-area"></i>
+              Trials</div>
+            <div class="card-body">
+          <section class="container">
+            <h3 class="display-4">CLINICAL RESEARCH</h3>
+            <p>Clinical research is medical research involving people. There are two types, clinical studies and clinical trials.
+              Clinical studies (sometimes called observational studies) observe people in normal settings. Researchers gather information, group volunteers according to broad characteristics, and compare changes over time. For example, researchers may collect data through medical exams, tests, or questionnaires about a group of older adults over time to learn more about the effects of different lifestyles on cognitive health. Clinical studies may help identify new possibilities for clinical trials.
+              Clinical trials are research studies performed in people that are aimed at evaluating a medical, surgical, or behavioral intervention. They are the primary way that researchers find out if a new treatment, like a new drug or diet or medical device (for example, a pacemaker) is safe and effective in people. Often a clinical trial is used to learn if a new treatment is more effective and/or has less harmful side effects than the standard treatment.
+              Other clinical trials test ways to find a disease early, sometimes before there are symptoms. Still others test ways to prevent a health problem. A clinical trial may also look at how to make life better for people living with a life-threatening disease or a chronic health problem. Clinical trials sometimes study the role of caregivers or support groups.
+            </p>
+            <h3 class="display-4">PHASES OF CLINICAL TRIALS</h3>
+            <p>
+              Clinical trials advance through four phases to test a treatment, find the appropriate dosage, and look for side effects. If, after the first three phases, researchers find a drug or other intervention to be safe and effective, the FDA approves it for clinical use and continues to monitor its effects.
+
+              Clinical trials of drugs are usually described based on their phase. The FDA typically requires Phase I, II, and III trials to be conducted to determine if the drug can be approved for use.
+              <ul>
+                <li>
+              A Phase I trial tests an experimental treatment on a small group of often healthy people (20 to 80) to judge its safety and side effects and to find the correct drug dosage.
+              </li>
+              <li> A Phase II trial uses more people (100 to 300). While the emphasis in Phase I is on safety, the emphasis in Phase II is on effectiveness. This phase aims to obtain preliminary data on whether the drug works in people who have a certain disease or condition. These trials also continue to study safety, including short-term side effects. This phase can last several years.
+              </li>
+              <li>
+               A Phase III trial gathers more information about safety and effectiveness, studying different populations and different dosages, using the drug in combination with other drugs. The number of subjects usually ranges from several hundred to about 3,000 people. If the FDA agrees that the trial results are positive, it will approve the experimental drug or device.
+              </li>
+              <li> A Phase IV trial for drugs or devices takes place after the FDA approves their use. A device or drug's effectiveness and safety are monitored in large, diverse populations. Sometimes, the side effects of a drug may not become clear until more people have taken it over a longer period of time.
+              </li>
+            </ul>
+            </p>
+          </section>
+            </div>
+            <div class="card-footer small text-muted">&nbsp;</div>
+          </div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Your Website 2018</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+      {% endblock content %}

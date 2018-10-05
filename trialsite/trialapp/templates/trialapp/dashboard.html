@@ -1,0 +1,177 @@
+{% extends "trialapp/base.html" %}
+
+{% block content %}
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href=" {% url 'trialapp:dashboard' %}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Patient Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'trialapp:patienttrials' %}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>TRIALS</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'trialapp:enrollment' %}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Enrolled TRIALS</span></a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Overview</li>
+          </ol>
+
+          <!-- Icon Cards-->
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-primary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-comments"></i>
+                  </div>
+                  <div class="mr-5">26 New Messages!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-list"></i>
+                  </div>
+                  <div class="mr-5">11 New Tasks!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-success o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-shopping-cart"></i>
+                  </div>
+                  <div class="mr-5">123 New Orders!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-danger o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-life-ring"></i>
+                  </div>
+                  <div class="mr-5">13 New Tickets!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Area Chart Example-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-chart-area"></i>
+              Area Chart Example</div>
+            <div class="card-body">
+                  	<section class="container">
+		<h3 class="display-4">CLINICAL RESEARCH</h3>
+		<p>Clinical research is medical research involving people. There are two types, clinical studies and clinical trials.
+			Clinical studies (sometimes called observational studies) observe people in normal settings. Researchers gather information, group volunteers according to broad characteristics, and compare changes over time. For example, researchers may collect data through medical exams, tests, or questionnaires about a group of older adults over time to learn more about the effects of different lifestyles on cognitive health. Clinical studies may help identify new possibilities for clinical trials.
+			Clinical trials are research studies performed in people that are aimed at evaluating a medical, surgical, or behavioral intervention. They are the primary way that researchers find out if a new treatment, like a new drug or diet or medical device (for example, a pacemaker) is safe and effective in people. Often a clinical trial is used to learn if a new treatment is more effective and/or has less harmful side effects than the standard treatment.
+			Other clinical trials test ways to find a disease early, sometimes before there are symptoms. Still others test ways to prevent a health problem. A clinical trial may also look at how to make life better for people living with a life-threatening disease or a chronic health problem. Clinical trials sometimes study the role of caregivers or support groups.
+		</p>
+		<h3 class="display-4">PHASES OF CLINICAL TRIALS</h3>
+		<p>
+			Clinical trials advance through four phases to test a treatment, find the appropriate dosage, and look for side effects. If, after the first three phases, researchers find a drug or other intervention to be safe and effective, the FDA approves it for clinical use and continues to monitor its effects.
+
+			Clinical trials of drugs are usually described based on their phase. The FDA typically requires Phase I, II, and III trials to be conducted to determine if the drug can be approved for use.
+
+			A Phase I trial tests an experimental treatment on a small group of often healthy people (20 to 80) to judge its safety and side effects and to find the correct drug dosage.
+			A Phase II trial uses more people (100 to 300). While the emphasis in Phase I is on safety, the emphasis in Phase II is on effectiveness. This phase aims to obtain preliminary data on whether the drug works in people who have a certain disease or condition. These trials also continue to study safety, including short-term side effects. This phase can last several years.
+			A Phase III trial gathers more information about safety and effectiveness, studying different populations and different dosages, using the drug in combination with other drugs. The number of subjects usually ranges from several hundred to about 3,000 people. If the FDA agrees that the trial results are positive, it will approve the experimental drug or device.
+			A Phase IV trial for drugs or devices takes place after the FDA approves their use. A device or drug's effectiveness and safety are monitored in large, diverse populations. Sometimes, the side effects of a drug may not become clear until more people have taken it over a longer period of time.
+		</p>
+	</section>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Your Website 2018</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="{% url 'trialapp:index' %}">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
