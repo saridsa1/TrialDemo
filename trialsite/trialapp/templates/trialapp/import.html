@@ -1,0 +1,14 @@
+{% extends 'trialapp/base.html' %}
+
+{% block content %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+
+    {% for row in rows %}
+      {{row.title}}
+    {%endfor%}
+  </form>
+{% endblock %}

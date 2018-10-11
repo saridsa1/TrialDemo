@@ -1,21 +1,30 @@
 {% extends "trialapp/base.html" %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'trialapp/style.css' %}">
-
-
 {% block content %}
 <div class="container">
  <form method="POST">
      {%csrf_token%}
+	 {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}{{field.name}}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}{{field.name}}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
      	<label>Organiser</label>
 		<input class="form-control" disabled type="text" name="organiser" value={{user}}>
 		<label>Operator</label>
-		<select  name="optr" class="form-control">
-			<option>Select Operator</option>
-			{% for row in rows %}
-			    <option value="{{ row.username }}">{{ row.username }}</option>
-			{% endfor %}
-		</select>
+	 	{{form.operator}}
+	 <!--<label>Operators</label>-->
+	 	<!--{{form.operators}}-->
 		<label>Title</label>
 		{{form.title}}
 		<label>Address</label>		
@@ -36,4 +45,6 @@
      <input type="reset" class="btn bg-success btn-lg font-weight-bold mt-1" value="RESET">
  </form>
 </div>
+
+
 {% endblock content %}

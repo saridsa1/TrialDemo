@@ -4,6 +4,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm,TextInput,PasswordInput
 from django import forms
 from django.core.exceptions import ValidationError
+from tinymce.widgets import TinyMCE
+from django_select2.forms import Select2MultipleWidget, Select2Widget
+
 
 class TrialForm(forms.Form):
     title = forms.CharField(widget=forms.TextInput(attrs={
@@ -21,12 +24,13 @@ class TrialForm(forms.Form):
     pincode = forms.CharField(widget=forms.NumberInput(attrs={
         'class':'form-control'
         }))
-    discription = forms.CharField(widget=forms.TextInput(attrs={
-        'class':'form-control'
-        }))
+    discription = forms.CharField(widget=TinyMCE(attrs={'cols':80,'rows':30,'class':'my_tinymce'}))
     email = forms.EmailField(widget=forms.TextInput(attrs={
         'class':'form-control'
         }))
+    operator = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=True),widget=Select2Widget(attrs={'class':'form-control'}))
+    # operators = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=True),widget=Select2MultipleWidget(attrs={'class':'form-control'}))
+
 
 
 
@@ -112,3 +116,20 @@ class OperatorSignupForm(UserCreationForm):
         optr.save()
         if commit:
             return optr
+
+class ForgotpasswordForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = (
+            'email',
+
+        )
+
+class ResetpasswordForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = (
+            'password1',
+            'password2',
+
+        )

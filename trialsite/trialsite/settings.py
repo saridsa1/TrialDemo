@@ -34,6 +34,9 @@ LOGIN_REDIRECT_URL = 'trialapp:login_success'
 
 INSTALLED_APPS = [
     'trialapp',
+    'tinymce',
+    'django_select2',
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'trials',
         'USER': 'postgres',
-        'PASSWORD': 'ayaz@5553',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -120,7 +124,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 

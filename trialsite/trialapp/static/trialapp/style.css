@@ -36,3 +36,6 @@ tr:hover{
 input{
 	width: 100%;
 }
+.my_tinymce{
+    background-color:red;
+}

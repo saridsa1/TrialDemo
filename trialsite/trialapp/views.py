@@ -1,20 +1,20 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect, render_to_response
+from django.views.generic import TemplateView
 from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ValidationError
-from django.contrib import messages
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-from django.contrib.auth.views import LoginView
+
 from .forms import SignupForm, TrialForm , InvestigatorSignupForm ,OperatorSignupForm
-from .forms import TrialForm
+from .forms import TrialForm, ForgotpasswordForm, ResetpasswordForm
 from .models import Trial, User ,Enrollment
 from django.contrib import messages
+import csv, io
+from django.core.mail import send_mail
 
-def index(request):
-	return render(request,'trialapp/index.html')
+# def index(request):
+# 	return render(request,'trialapp/index.html')
+
+class Index(TemplateView):
+    template_name = 'trialapp/index.html'
 
 def login_success(request):
     """
@@ -35,10 +35,11 @@ def logout(request):
     return HttpResponseRedirect('trialapp:index')
 
 
-def dashboard(request):
-    
-    return render(request, 'trialapp/dashboard.html')
-
+# def dashboard(request):
+#
+#     return render(request, 'trialapp/dashboard.html')
+class Dashboard(TemplateView):
+    template_name = 'trialapp/dashboard.html'
 
 def investigator_dashboard(request):
     trials = Trial.objects.filter(organiser=request.user).count()
@@ -47,7 +48,6 @@ def investigator_dashboard(request):
     enrollments = Enrollment.objects.filter(trial_organiser=request.user).count()
     user =request.user
     return render(request, 'trialapp/investigator_dashboard.html',{'trials':trials,'operators':operators,'patients':patients,'enrollments':enrollments,'user':user})
-
 
 def operator_dashboard(request):
     trials = Trial.objects.filter(organiser=request.user).count()
@@ -150,23 +150,20 @@ def addtrials(request):
             discription = form.cleaned_data['discription']
             email = form.cleaned_data['email']
             organiser = request.user
-            operator = request.POST.get('optr')
-                  
+            operator = form.cleaned_data['operator']
+            print(operator,"hello")
             t =Trial(title=title,address=address,city=city,country=country,pincode=pincode,discription=discription,email=email,organiser=organiser,operator=operator)
             t.save()
             return HttpResponseRedirect(reverse('trialapp:trials'))
     # if a GET (or any other method) we'll create a blank form
     else:
-        rows =User.objects.filter(is_staff=True)
         form = TrialForm()
-        user = request.user
-        print(user)
-
-    return render(request, 'trialapp/addtrials.html', {'form': form,'user':user,'rows':rows})
+        # user = request.user
+    return render(request, 'trialapp/addtrials.html', {'form': form})
 
 
 def trials(request):
-    rows =Trial.objects.filter(organiser=request.user)
+    rows =Trial.objects.all()
     return render(request,'trialapp/trials.html', {'rows': rows})
 
 
@@ -220,4 +217,81 @@ def enrollment(request):
     return render(request, 'trialapp/patient_enrolls.html',{'enrollments':enrollments,'enroll':enroll})
 
 
+def simple_upload(request):
+    template = "trialapp/import.html"
+    if request.method == "GET":
+        return render(request, template)
 
+    csv_file = request.FILES['myfile']
+    data_set = csv_file.read().decode('utf-8')
+    io_string = io.StringIO(data_set)
+    next(io_string)
+    for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+        created = Trial(title=column[0],address=column[1],city=column[2],country=column[3],pincode=column[4],discription=column[5],email = column[6],operator = column[7],organiser = column[8])
+        created.save()
+
+    return render(request, template)
+
+
+def download_header(request):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="trialheader.csv"'
+
+    writer = csv.writer(response)
+    cols = Trial._meta.get_fields()
+    cn = []
+    for f in cols:
+        cn.append(f.name)
+    writer.writerow(cn)
+
+    return response
+def download_trials(request):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="alltrials.csv"'
+
+    writer = csv.writer(response)
+    cols = Trial._meta.get_fields()
+    cn = []
+    for f in cols:
+        cn.append(f.name)
+    writer.writerow(cn)
+    trials = Trial.objects.all()
+    for f in trials:
+        writer.writerow([f.id,f.title,f.address,f.city,f.country,f.pincode,f.discription,f.email,f.organiser,f.operator])
+
+    return response
+
+
+def forgot_pass(request):
+
+    if request.method == 'POST':
+        form=ForgotpasswordForm(request.POST)
+        if form.is_valid():
+            email = self.cleaned_data['email']
+            user = User.objects.get(email=email)
+            user_email = user.email
+            print("valid form")
+            return render(request,'trialapp/reset.html',{'email':user_email})
+        else:
+            form = ForgotpasswordForm
+            print("form invalid")
+            return render(request, 'trialapp/forgot.html', {'form': form})
+    else:
+        form = ForgotpasswordForm
+        return render(request,'trialapp/forgot.html',{'form':form})
+
+
+def reset_pass(request):
+
+    if request.method == 'POST':
+        form = ResetpasswordForm(request.POST)
+        if form.is_valid():
+            email = self.cleaned_data['email']
+            password1 = self.cleaned_data['password1']
+            password2 = self.cleaned_data['password2']
+
+    else:
+        form = ResetpasswordForm
+        return render(request,'trialapp/forgot.html',{'form':form})

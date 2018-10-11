@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 #from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Permission, User
-
+from tinymce import models as tinymce_models
 class Trial(models.Model):
 
 	title = models.CharField(max_length=100)
@@ -11,7 +11,7 @@ class Trial(models.Model):
 	city = models.CharField(max_length=20)
 	country = models.CharField(max_length=20)
 	pincode = models.IntegerField()
-	discription = models.CharField(max_length=200)
+	discription = tinymce_models.HTMLField()
 	email = models.EmailField()
 	operator =models.CharField(max_length=100)
 	organiser =models.CharField(max_length=100)
@@ -22,3 +22,4 @@ class Enrollment(models.Model):
     trial_title = models.CharField(max_length=100)
     trial_organiser = models.CharField(max_length=100)
     trial_operator = models.CharField(max_length=100)
+

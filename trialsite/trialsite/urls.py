@@ -20,4 +20,6 @@ urlpatterns = [
 
 	path('trialapp/',include('trialapp.urls')),
     path('admin/', admin.site.urls),
+    path('tinymce/', include('tinymce.urls')),
+    path('select2/', include('django_select2.urls')),
 ]

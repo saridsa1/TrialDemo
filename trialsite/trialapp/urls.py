@@ -4,7 +4,7 @@ from . import views
 from django.contrib.auth.decorators import login_required
 app_name = 'trialapp'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.Index.as_view(), name='index'),
 	path('login/',LoginView.as_view(), name='login'),
     path('loginsuccess/', views.login_success, name='login_success'),
 	path('logout/',views.logout, name='logout'),
@@ -24,12 +24,16 @@ urlpatterns = [
     path('operatorsignup/', views.operatorsignup, name='operator_signup'),
     path('operators/', views.operators, name='operators'),
     # Patient
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/', views.Dashboard.as_view(), name='dashboard'),
     path('signup/', views.signup, name='signup'),
     path('patienttrials/', views.patient_trials, name='patienttrials'),
     path('patients/', views.patients, name='patients'),
     #enrollment
     path('patienttrials/enroll/<int:id>',views.enroll, name='enroll'),
     path('patienttrials/enroll/', views.enrollment, name='enrollment'),
-
+    path('import/', views.simple_upload, name='import'),
+    path('download/', views.download_header, name='download_trialheader'),
+    path('downloadtrials/', views.download_trials, name='download_trials'),
+    path('forgot/', views.forgot_pass, name='forgot'),
+    path('reset/', views.reset_pass, name='reset'),
 ]
