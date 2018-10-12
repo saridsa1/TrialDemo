@@ -1,20 +1,21 @@
 from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-
-from .forms import SignupForm, TrialForm , InvestigatorSignupForm ,OperatorSignupForm
-from .forms import TrialForm, ForgotpasswordForm, ResetpasswordForm
-from .models import Trial, User ,Enrollment
+from django.core.mail import send_mail
+from .forms import SignupForm, TrialForm, InvestigatorSignupForm, OperatorSignupForm, ForgotpasswordForm, MailForm
+from django.views.generic.edit import CreateView, FormView
+from django.views.generic import View
+from .models import Trial, Enrollment, Email
 from django.contrib import messages
 import csv, io
-from django.core.mail import send_mail
+from django.contrib.auth.models import User
+from django.conf import settings
 
-# def index(request):
-# 	return render(request,'trialapp/index.html')
 
 class Index(TemplateView):
     template_name = 'trialapp/index.html'
+
 
 def login_success(request):
     """
@@ -30,6 +31,7 @@ def login_success(request):
         # user is an pateint
         return redirect("trialapp:dashboard")
 
+
 def logout(request):
     logout(request)
     return HttpResponseRedirect('trialapp:index')
@@ -41,24 +43,28 @@ def logout(request):
 class Dashboard(TemplateView):
     template_name = 'trialapp/dashboard.html'
 
+
 def investigator_dashboard(request):
     trials = Trial.objects.filter(organiser=request.user).count()
-    operators = User.objects.filter(is_staff = True).count()
-    patients = User.objects.filter(is_staff = False, is_superuser = False).count()
+    operators = User.objects.filter(is_staff=True).count()
+    patients = User.objects.filter(is_staff=False, is_superuser=False).count()
     enrollments = Enrollment.objects.filter(trial_organiser=request.user).count()
-    user =request.user
-    return render(request, 'trialapp/investigator_dashboard.html',{'trials':trials,'operators':operators,'patients':patients,'enrollments':enrollments,'user':user})
+    user = request.user
+    return render(request, 'trialapp/investigator_dashboard.html',
+                  {'trials': trials, 'operators': operators, 'patients': patients, 'enrollments': enrollments,
+                   'user': user})
+
 
 def operator_dashboard(request):
     trials = Trial.objects.filter(organiser=request.user).count()
-    patients = User.objects.filter(is_staff = False, is_superuser = False).count()
-    enrollments = Enrollment.objects.filter(trial_operator=request.user).count()  
-    return render(request, 'trialapp/operator_dashboard.html',{'trials':trials,'operators':operators,'patients':patients,'enrollments':enrollments})
-
+    patients = User.objects.filter(is_staff=False, is_superuser=False).count()
+    enrollments = Enrollment.objects.filter(trial_operator=request.user).count()
+    return render(request, 'trialapp/operator_dashboard.html',
+                  {'trials': trials, 'operators': operators, 'patients': patients, 'enrollments': enrollments})
 
 
 def signup(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
@@ -67,16 +73,15 @@ def signup(request):
         else:
             form = SignupForm()
             args = {'form': form}
-            return render(request, 'trialapp/signup.html', args)  
+            return render(request, 'trialapp/signup.html', args)
     else:
         form = SignupForm()
         args = {'form': form}
         return render(request, 'trialapp/signup.html', args)
 
 
-
 def investigatorsignup(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = InvestigatorSignupForm(request.POST)
         if form.is_valid():
             form.save()
@@ -90,7 +95,7 @@ def investigatorsignup(request):
 
 
 def operatorsignup(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = OperatorSignupForm(request.POST)
         if form.is_valid():
             form.save()
@@ -104,14 +109,14 @@ def operatorsignup(request):
 
 
 def operators(request):
-    rows =User.objects.filter(is_staff = True)
-    return render(request,'trialapp/operators.html', {'rows': rows})
+    rows = User.objects.filter(is_staff=True)
+    return render(request, 'trialapp/operators.html', {'rows': rows})
 
-def edit_operator(request,id):
+
+def edit_operator(request, id):
     user = User.objects.get(id=id)
-    context={'user':user}
-    return render(request, 'trialapp/edit_operator.html',context)
-
+    context = {'user': user}
+    return render(request, 'trialapp/edit_operator.html', context)
 
 
 # def update_operator(request,id):
@@ -124,21 +129,20 @@ def edit_operator(request,id):
 #     return HttpResponseRedirect(reverse('trialapp:operators'))
 
 
-def delete_operator(request,id):
+def delete_operator(request, id):
     user = User.objects.get(id=id)
     user.delete()
     return HttpResponseRedirect(reverse('trialapp:operators'))
 
 
 def patients(request):
-    rows =User.objects.filter(is_staff = False,is_superuser = False)
-    return render(request,'trialapp/pateints.html', {'rows': rows})
+    rows = User.objects.filter(is_staff=False, is_superuser=False)
+    return render(request, 'trialapp/pateints.html', {'rows': rows})
 
 
 def addtrials(request):
-    
     if request.method == 'POST':
-        
+
         form = TrialForm(request.POST)
 
         if form.is_valid():
@@ -151,8 +155,9 @@ def addtrials(request):
             email = form.cleaned_data['email']
             organiser = request.user
             operator = form.cleaned_data['operator']
-            print(operator,"hello")
-            t =Trial(title=title,address=address,city=city,country=country,pincode=pincode,discription=discription,email=email,organiser=organiser,operator=operator)
+            print(operator, "hello")
+            t = Trial(title=title, address=address, city=city, country=country, pincode=pincode,
+                      discription=discription, email=email, organiser=organiser, operator=operator)
             t.save()
             return HttpResponseRedirect(reverse('trialapp:trials'))
     # if a GET (or any other method) we'll create a blank form
@@ -163,48 +168,48 @@ def addtrials(request):
 
 
 def trials(request):
-    rows =Trial.objects.all()
-    return render(request,'trialapp/trials.html', {'rows': rows})
+    rows = Trial.objects.all()
+    return render(request, 'trialapp/trials.html', {'rows': rows})
 
 
 def patient_trials(request):
-    rows =Trial.objects.all()
-    return render(request,'trialapp/patient_trials.html', {'rows': rows})
+    rows = Trial.objects.all()
+    return render(request, 'trialapp/patient_trials.html', {'rows': rows})
 
 
-def edit(request,id):
+def edit(request, id):
     trial = Trial.objects.get(id=id)
-    context={'trial':trial}
-    return render(request, 'trialapp/edit.html',context)
+    context = {'trial': trial}
+    return render(request, 'trialapp/edit.html', context)
 
 
-
-def update(request,id):
+def update(request, id):
     trial = Trial.objects.get(id=id)
-    trial.title=request.POST['title']
-    trial.address=request.POST['address']
-    trial.city=request.POST['city']
-    trial.pincode=request.POST['pincode']
-    trial.discription=request.POST['discription']
-    trial.email=request.POST['email']
+    trial.title = request.POST['title']
+    trial.address = request.POST['address']
+    trial.city = request.POST['city']
+    trial.pincode = request.POST['pincode']
+    trial.discription = request.POST['discription']
+    trial.email = request.POST['email']
     trial.save()
     return HttpResponseRedirect(reverse('trialapp:trials'))
 
 
-def delete(request,id):
+def delete(request, id):
     trial = Trial.objects.get(id=id)
     trial.delete()
     return HttpResponseRedirect(reverse('trialapp:trials'))
 
 
-def enroll(request,id):
+def enroll(request, id):
     patient_username = request.user
     email = request.user.email
     trial = Trial.objects.get(id=id)
-    trial_title =trial.title
+    trial_title = trial.title
     trial_operator = trial.operator
     trial_organiser = trial.organiser
-    enrollment = Enrollment(patient_username=patient_username,email=email,trial_title=trial_title,trial_operator =trial_operator,trial_organiser=trial_organiser)
+    enrollment = Enrollment(patient_username=patient_username, email=email, trial_title=trial_title,
+                            trial_operator=trial_operator, trial_organiser=trial_organiser)
     enrollment.save()
     enrollments = Enrollment.objects.filter(trial_organiser=request.user)
     enroll = Enrollment.objects.filter(patient_username=request.user)
@@ -214,7 +219,7 @@ def enroll(request,id):
 def enrollment(request):
     enrollments = Enrollment.objects.filter(trial_organiser=request.user)
     enroll = Enrollment.objects.filter(patient_username=request.user)
-    return render(request, 'trialapp/patient_enrolls.html',{'enrollments':enrollments,'enroll':enroll})
+    return render(request, 'trialapp/patient_enrolls.html', {'enrollments': enrollments, 'enroll': enroll})
 
 
 def simple_upload(request):
@@ -227,7 +232,8 @@ def simple_upload(request):
     io_string = io.StringIO(data_set)
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-        created = Trial(title=column[0],address=column[1],city=column[2],country=column[3],pincode=column[4],discription=column[5],email = column[6],operator = column[7],organiser = column[8])
+        created = Trial(title=column[0], address=column[1], city=column[2], country=column[3], pincode=column[4],
+                        discription=column[5], email=column[6], operator=column[7], organiser=column[8])
         created.save()
 
     return render(request, template)
@@ -246,6 +252,8 @@ def download_header(request):
     writer.writerow(cn)
 
     return response
+
+
 def download_trials(request):
     # Create the HttpResponse object with the appropriate CSV header.
     response = HttpResponse(content_type='text/csv')
@@ -259,39 +267,55 @@ def download_trials(request):
     writer.writerow(cn)
     trials = Trial.objects.all()
     for f in trials:
-        writer.writerow([f.id,f.title,f.address,f.city,f.country,f.pincode,f.discription,f.email,f.organiser,f.operator])
+        writer.writerow(
+            [f.id, f.title, f.address, f.city, f.country, f.pincode, f.discription, f.email, f.organiser, f.operator])
 
     return response
 
 
 def forgot_pass(request):
-
+    form = ForgotpasswordForm(request.POST)
     if request.method == 'POST':
-        form=ForgotpasswordForm(request.POST)
-        if form.is_valid():
-            email = self.cleaned_data['email']
-            user = User.objects.get(email=email)
-            user_email = user.email
-            print("valid form")
-            return render(request,'trialapp/reset.html',{'email':user_email})
-        else:
-            form = ForgotpasswordForm
-            print("form invalid")
-            return render(request, 'trialapp/forgot.html', {'form': form})
-    else:
-        form = ForgotpasswordForm
-        return render(request,'trialapp/forgot.html',{'form':form})
 
+        email = request.POST['email']
+        user = User.objects.get(email=email)
+        if user is not None:
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
 
-def reset_pass(request):
-
-    if request.method == 'POST':
-        form = ResetpasswordForm(request.POST)
-        if form.is_valid():
-            email = self.cleaned_data['email']
-            password1 = self.cleaned_data['password1']
-            password2 = self.cleaned_data['password2']
+            if password1 and password2 and password1 == password2:
+                user.set_password(password2)
+                user.save()
+            else:
+                return render(request, 'trialapp/forgot.html', {'form': form})
+            return redirect(reverse('trialapp:login'))
 
     else:
-        form = ResetpasswordForm
-        return render(request,'trialapp/forgot.html',{'form':form})
+        return render(request, 'trialapp/forgot.html', {'form': form})
+
+
+def send_email(request):
+    subject = "thankyou for registraton"
+    message = "thanks login plz"
+    from_email = settings.EMAIL_HOST_USER
+    to_list = ['ayazurrashid@gmail.com']
+    send_mail(subject, message, from_email, to_list, fail_silently=False)
+    print("send")
+    return HttpResponse("Mail Sent")
+
+
+class SendEmail(FormView):
+    template_name = 'trialapp/email.html'
+    form_class = MailForm
+    success_url = 'index/'
+
+    def form_valid(request,form):
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        username = form.cleaned_data['email_list']
+        to_list=[]
+        user = User.objects.get(username=username)
+        to_list.append(user.email)
+        from_email = settings.EMAIL_HOST_USER
+        send_mail(subject, message, from_email, to_list, fail_silently=False)
+        return redirect('trialapp:investigator_dashboard')

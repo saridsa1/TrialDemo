@@ -35,12 +35,19 @@
         <div class="card-body">
           <form method="POST">
             {% csrf_token %}
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+ {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}{{field.name}}</strong>
+            </div>
+        {% endfor %}
     {% endfor %}
-</ul>
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}{{field.name}}</strong>
+        </div>
+    {% endfor %}
 {% endif %}
             <div class="form-group">
               <div class="form-row">

@@ -23,3 +23,7 @@ class Enrollment(models.Model):
     trial_organiser = models.CharField(max_length=100)
     trial_operator = models.CharField(max_length=100)
 
+class Email(models.Model):
+	subject = models.CharField(max_length=100)
+	message = models.CharField(max_length=500)
+	email_list = models.CharField(max_length=500)

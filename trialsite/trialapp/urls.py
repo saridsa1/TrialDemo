@@ -35,5 +35,7 @@ urlpatterns = [
     path('download/', views.download_header, name='download_trialheader'),
     path('downloadtrials/', views.download_trials, name='download_trials'),
     path('forgot/', views.forgot_pass, name='forgot'),
-    path('reset/', views.reset_pass, name='reset'),
+    path('email/', views.send_email, name='email'),
+    path('sendmail/', views.SendEmail.as_view(), name='send_mail'),
+
 ]

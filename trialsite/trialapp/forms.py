@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import ModelForm,TextInput,PasswordInput
+from .models import Email
 from django import forms
-from django.core.exceptions import ValidationError
+
 from tinymce.widgets import TinyMCE
 from django_select2.forms import Select2MultipleWidget, Select2Widget
 
@@ -122,14 +122,18 @@ class ForgotpasswordForm(UserCreationForm):
         model = User
         fields = (
             'email',
-
-        )
-
-class ResetpasswordForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = (
             'password1',
             'password2',
 
         )
+
+class MailForm(forms.Form):
+
+    subject = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    message = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    email_list = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=True),
+                                      widget=Select2Widget(attrs={'class': 'form-control'}))
