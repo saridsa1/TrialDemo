@@ -7,20 +7,20 @@
 <div class="container">
 	<form action="/trialapp/updateoperator/{{user.id}}" method="POST">
 		{% csrf_token %}
-		
-		<label for="title">Username</label>
-		<input type="text" class="form-control" name="title" id="title" value="{{user.username}}">
-		
-		<label for="address">First Name</label>
-		<input type="text" class="form-control" name="address" id="address" value="{{user.first_name}}">
-		
-		<label for="city">Last Name</label>
-		<input type="text" class="form-control" name="city" id="city" value="{{user.last_name}}">
-		<label for="city">Email:</label>
-		<input type="text" class="form-control" name="city" id="city" value="{{user.email}}">
-		
+		{{form.as_p}}
+		<!--<label for="title">Username</label>-->
+		<!--<input type="text" class="form-control" name="title" id="title" value="{{user.username}}">-->
+		<!---->
+		<!--<label for="address">First Name</label>-->
+		<!--<input type="text" class="form-control" name="address" id="address" value="{{user.first_name}}">-->
+		<!---->
+		<!--<label for="city">Last Name</label>-->
+		<!--<input type="text" class="form-control" name="city" id="city" value="{{user.last_name}}">-->
+		<!--<label for="city">Email:</label>-->
+		<!--<input type="text" class="form-control" name="city" id="city" value="{{user.email}}">-->
+		<!---->
 
-		<input type="submit" class="btn btn-success mt-1 " value="Update">
+		<!--<input type="submit" class="btn btn-success mt-1 " value="Update">-->
 	</form>
 </div>
 {% endblock content %}

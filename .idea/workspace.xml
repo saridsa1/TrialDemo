@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cfa44669-0a38-46a0-934c-be1319dc814b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/addtrials.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/addtrials.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/edit_operator.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/edit_operator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/operators.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/operators.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/pateints.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/pateints.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/patient_trials.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/patient_trials.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/trials.html" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/trials.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trialsite/trialsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/trialsite/trialsite/settings.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-184250449">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.opened" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="15" />
+          <entry key="log" value="5" />
+          <entry key="py" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="15" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Python" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="97" />
+          <entry key="py" value="895" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="97" />
+          <entry key="Python" value="895" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/trialsite/trialapp/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/addtrials.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/trialsite/trialsite/settings.py" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/models.py" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/pateints.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/operators.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/edit_operator.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/trials.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/signup.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/addtrials.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/urls.py" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/patient_trials.html" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/views.py" />
+        <option value="$PROJECT_DIR$/trialsite/trialapp/forms.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="706" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TrialDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrialDemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrialDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrialDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="trialsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrialDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrialDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="trialsite" type="462c0819:PsiDirectoryNode" />
+              <item name="trialapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrialDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrialDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="trialsite" type="462c0819:PsiDirectoryNode" />
+              <item name="trialapp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrialDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrialDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="trialsite" type="462c0819:PsiDirectoryNode" />
+              <item name="trialapp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="trialapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrialDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrialDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="trialsite" type="462c0819:PsiDirectoryNode" />
+              <item name="trialsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cfa44669-0a38-46a0-934c-be1319dc814b" name="Default Changelist" comment="" />
+      <created>1539338331493</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539338331493</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960877" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32919255" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/trialsite/sent_emails/20181011-104601-140433800295032.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/sent_emails/20181011-104523-140245870594760.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/sent_emails/20181011-104919-139781177115536.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/sent_emails/20181011-104859-140088325267808.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/sent_emails/20181011-104810-139721152332968.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/pateints.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/operators.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="146" selection-start-line="20" selection-start-column="146" selection-end-line="20" selection-end-column="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/edit_operator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="46" column="38" lean-forward="true" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/trials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/patient_trials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="261" selection-start-line="261" selection-end-line="261" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialsite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialsite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1045">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/templates/trialapp/addtrials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trialsite/trialapp/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

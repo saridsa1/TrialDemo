@@ -1,0 +1,40 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: white; 
+
+}
+#base{
+		display: flex;
+}
+#class-base,#class-base2{
+
+	height: 500px;
+	width: 50%;
+	background-color: grey; 
+}
+#class-base2{
+
+	background-color: lightgrey; 
+}
+
+#demo{
+	color: red;
+	width: 100px;
+	height: 200px;
+	position: fixed;
+	background-color: white;
+	font-weight: bold;
+	margin:0;
+	font-size: 25px;
+}
+#demos{
+	color: red;
+	width: 100px;
+	height: 200px;
+	position: fixed;
+	margin:0;
+	background-color: white;
+	font-weight: bold;
+	font-size: 25px;
+}
