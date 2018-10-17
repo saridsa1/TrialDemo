@@ -21,7 +21,7 @@ body{
 	color: red;
 }
 #demo{
-	color: red;
+	border-radius: 5px;
 	width: 100px;
 	display: none;
 	height: 200px;
@@ -31,8 +31,20 @@ body{
 	margin:0;
 	font-size: 25px;
 }
+#demo ul, #demos ul{
+	list-style-type: none;
+	margin :0px;
+	padding: 0px;
+}
+#demo ul li, #demos ul li{
+	background-color: aliceblue;
+	border: 1px solid black;
+	margin: 2px;
+
+
+}
 #demos{
-	color: red;
+	border-radius: 5px;
 	display: none;
 
 	width: 100px;
