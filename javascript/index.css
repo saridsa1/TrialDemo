@@ -17,10 +17,13 @@ body{
 
 	background-color: lightgrey; 
 }
-
+.posi{
+	color: red;
+}
 #demo{
 	color: red;
 	width: 100px;
+	display: none;
 	height: 200px;
 	position: fixed;
 	background-color: white;
@@ -30,6 +33,8 @@ body{
 }
 #demos{
 	color: red;
+	display: none;
+
 	width: 100px;
 	height: 200px;
 	position: fixed;

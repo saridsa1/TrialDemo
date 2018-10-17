@@ -98,7 +98,7 @@ function showCoords(event) {
 	var content2 = "<ul><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul>"
     var x = event.clientX;
     var y = event.clientY;
-
+    var posi = document.getElementById("posi");
     var base1 = document.getElementById("class-base");
     var base2 = document.getElementById("class-base2");
     var demo = document.getElementById("demo");
@@ -114,52 +114,72 @@ function showCoords(event) {
     // height & width of demos
     var demosHeigth = demos.offsetHeight;
     var demosWidth = demos.offsetWidth;
+    var arrowdown = "&#9660;";
+    var arrowup = "&#9660;";
     var location1 = content1;
     var location2 = content2;
 
     if(x < base1Width-demoWidth && y < base1Height -demoHeigth){
+    	demo.style.display = "block";
    		demo.style.left = x +"px";
    		demo.style.top = y +"px";
-    	demo.innerHTML = location1;
+    	demo.innerHTML = location1 ;
+    	posi.innerHTML = x;
     }else if(x < base1Width && y > base1Height -demoHeigth){
-    	x -= demoWidth
     	y -= demoHeigth
+    	demo.style.display = "block";
     	demo.style.left = x +"px";
    		demo.style.top = y +"px";
     	demo.innerHTML = location1;
+    	posi.innerHTML = x;
+    }else if(x > x + demoWidth && x < base2Width){
+    	x -= demoWidth 
+    	demo.style.display = "block";
+    	demo.style.left = x +"px";
+   		demo.style.top = y +"px";
+    	demo.innerHTML = location1;
+    	posi.innerHTML = x;
     }else if(x > base1Width && x < (base1Width + base2Width - demosWidth) && y < base2Height -demosHeigth){
+    	demos.style.display = "block";
     	demos.style.left = x +"px";
    		demos.style.top = y +"px";
     	demos.innerHTML = location2;
+    	posi.innerHTML = x;
     }else if(x > (base1Width + base2Width - demosWidth) && y > base2Height -demosHeigth){
     	x -= demosWidth
     	y -= demosHeigth
+    	demos.style.display = "block";
     	demos.style.left = x +"px";
    		demos.style.top = y +"px";
     	demos.innerHTML = location2;
+    	posi.innerHTML = x;
     
     }
 }
-//     if(y < base1Height -demoHeigth){
-//    		demo.style.left = x +"px";
-//    		demo.style.top = y +"px";
-//     	demo.innerHTML = location;
-//     }else if(y > base1Height -demoHeigth){
-//     	y -= demoHeigth
-//     	demo.style.left = x +"px";
-//    		demo.style.top = y +"px";
-//     	demo.innerHTML = location;
-//     }else if(y < base2Height -demosHeigth){
-//    		demos.style.left = x +"px";
-//    		demos.style.top = y +"px";
-//     	demos.innerHTML = location;
-//     }else if(y > base2Height -demosHeigth){
-//     	y -= demosHeigth
-//     	demos.style.left = x +"px";
-//    		demos.style.top = y +"px";
-//     	demos.innerHTML = location;
-//     }
+    // if(y < base1Height -demoHeigth){
+    // 	demo.style.display = "block";
+   	// 	demo.style.left = x +"px";
+   	// 	demo.style.top = y +"px";
+    // 	demo.innerHTML = location1;
+    // }else if(y > base1Height -demoHeigth){
+    // 	y -= demoHeigth
+    // 	demo.style.display = "block";
+    // 	demo.style.left = x +"px";
+   	// 	demo.style.top = y +"px";
+    // 	demo.innerHTML = location1;
+    // }else if(y < base2Height -demosHeigth){
+    // 	demos.style.display = "block";
+   	// 	demos.style.left = x +"px";
+   	// 	demos.style.top = y +"px";
+    // 	demos.innerHTML = location2;
+    // }else if(y > base2Height -demosHeigth){
+    // 	y -= demosHeigth
+    // 	demos.style.display = "block";
+    // 	demos.style.left = x +"px";
+   	// 	demos.style.top = y +"px";
+    // 	demos.innerHTML = location2;
+    // }
 
-// }
+
 
 
