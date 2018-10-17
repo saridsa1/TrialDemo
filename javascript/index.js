@@ -114,47 +114,62 @@ function showCoords(event) {
     // height & width of demos
     var demosHeigth = demos.offsetHeight;
     var demosWidth = demos.offsetWidth;
-    var arrowdown = "&#9660;";
-    var arrowup = "&#9660;";
+    var arrowdown = "&#x25BC;";
+    var arrowup = "&#x25B2;";
     var location1 = content1;
     var location2 = content2;
-
     if(x < base1Width-demoWidth && y < base1Height -demoHeigth){
     	demo.style.display = "block";
    		demo.style.left = x +"px";
    		demo.style.top = y +"px";
-    	demo.innerHTML = location1 ;
-    	posi.innerHTML = x;
-    }else if(x < base1Width && y > base1Height -demoHeigth){
+    	demo.innerHTML =  arrowdown + location1;
+    }else if(x < base1Width && x > base1Width-demoWidth && y < base1Height -demoHeigth){
+        x -= demoWidth
+        demo.style.display = "block";
+        demo.style.left = x +"px";
+        demo.style.top = y +"px";
+        demo.innerHTML =  arrowdown + location1;
+    }else if(x < base1Width-demoWidth && y > base1Height -demoHeigth ){
     	y -= demoHeigth
     	demo.style.display = "block";
     	demo.style.left = x +"px";
    		demo.style.top = y +"px";
-    	demo.innerHTML = location1;
-    	posi.innerHTML = x;
-    }else if(x > x + demoWidth && x < base2Width){
-    	x -= demoWidth 
-    	demo.style.display = "block";
-    	demo.style.left = x +"px";
-   		demo.style.top = y +"px";
-    	demo.innerHTML = location1;
-    	posi.innerHTML = x;
+    	demo.innerHTML = location1 + arrowup;
+    }else if(x < base1Width  && x > base1Width-demoWidth && y > base1Height -demoHeigth ){
+        y -= demoHeigth
+        x -=demoWidth
+        demo.style.display = "block";
+        demo.style.left = x +"px";
+        demo.style.top = y +"px";
+        demo.innerHTML = location1 + arrowup;
     }else if(x > base1Width && x < (base1Width + base2Width - demosWidth) && y < base2Height -demosHeigth){
     	demos.style.display = "block";
     	demos.style.left = x +"px";
    		demos.style.top = y +"px";
-    	demos.innerHTML = location2;
-    	posi.innerHTML = x;
-    }else if(x > (base1Width + base2Width - demosWidth) && y > base2Height -demosHeigth){
+    	demos.innerHTML =arrowdown + location2;
+
+    }else if(x > (base1Width + base2Width - demosWidth)&& y < base2Height -demosHeigth){
     	x -= demosWidth
-    	y -= demosHeigth
     	demos.style.display = "block";
     	demos.style.left = x +"px";
    		demos.style.top = y +"px";
-    	demos.innerHTML = location2;
-    	posi.innerHTML = x;
+    	demos.innerHTML = location2 + arrowup;
     
-    }
+    }else if(x > base1Width && x < (base1Width + base2Width - demosWidth) && y > base2Height -demosHeigth){
+        y-= demosHeigth
+        demos.style.display = "block";
+        demos.style.left = x +"px";
+        demos.style.top = y +"px";
+        demos.innerHTML =arrowdown + location2;
+    
+    }else if(x > (base1Width + base2Width - demosWidth)&& y > base2Height -demosHeigth){
+        y -= demosHeigth
+        x -=demosWidth
+        demos.style.display = "block";
+        demos.style.left = x +"px";
+        demos.style.top = y +"px";
+        demos.innerHTML = location2 + arrowup;
+}
 }
     // if(y < base1Height -demoHeigth){
     // 	demo.style.display = "block";
@@ -179,7 +194,4 @@ function showCoords(event) {
    	// 	demos.style.top = y +"px";
     // 	demos.innerHTML = location2;
     // }
-
-
-
 
