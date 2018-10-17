@@ -122,18 +122,21 @@ function showCoords(event) {
     	demo.style.display = "block";
    		demo.style.left = x +"px";
    		demo.style.top = y +"px";
+        demo.style.textAlign = "left";
     	demo.innerHTML =  arrowdown + location1;
     }else if(x < base1Width && x > base1Width-demoWidth && y < base1Height -demoHeigth){
         x -= demoWidth
         demo.style.display = "block";
         demo.style.left = x +"px";
         demo.style.top = y +"px";
+        demo.style.textAlign = "right";
         demo.innerHTML =  arrowdown + location1;
     }else if(x < base1Width-demoWidth && y > base1Height -demoHeigth ){
     	y -= demoHeigth
     	demo.style.display = "block";
     	demo.style.left = x +"px";
    		demo.style.top = y +"px";
+        demo.style.textAlign = "left";
     	demo.innerHTML = location1 + arrowup;
     }else if(x < base1Width  && x > base1Width-demoWidth && y > base1Height -demoHeigth ){
         y -= demoHeigth
@@ -141,11 +144,13 @@ function showCoords(event) {
         demo.style.display = "block";
         demo.style.left = x +"px";
         demo.style.top = y +"px";
+        demo.style.textAlign = "right";
         demo.innerHTML = location1 + arrowup;
     }else if(x > base1Width && x < (base1Width + base2Width - demosWidth) && y < base2Height -demosHeigth){
     	demos.style.display = "block";
     	demos.style.left = x +"px";
    		demos.style.top = y +"px";
+        demos.style.textAlign = "left";
     	demos.innerHTML =arrowdown + location2;
 
     }else if(x > (base1Width + base2Width - demosWidth)&& y < base2Height -demosHeigth){
@@ -153,14 +158,16 @@ function showCoords(event) {
     	demos.style.display = "block";
     	demos.style.left = x +"px";
    		demos.style.top = y +"px";
-    	demos.innerHTML = location2 + arrowup;
+        demos.style.textAlign = "right";
+    	demos.innerHTML =  arrowdown + location2;
     
     }else if(x > base1Width && x < (base1Width + base2Width - demosWidth) && y > base2Height -demosHeigth){
         y-= demosHeigth
         demos.style.display = "block";
         demos.style.left = x +"px";
         demos.style.top = y +"px";
-        demos.innerHTML =arrowdown + location2;
+        demos.style.textAlign = "left";
+        demos.innerHTML =location2 + arrowup;
     
     }else if(x > (base1Width + base2Width - demosWidth)&& y > base2Height -demosHeigth){
         y -= demosHeigth
@@ -168,8 +175,10 @@ function showCoords(event) {
         demos.style.display = "block";
         demos.style.left = x +"px";
         demos.style.top = y +"px";
+        demos.style.textAlign = "right";
         demos.innerHTML = location2 + arrowup;
 }
+
 }
     // if(y < base1Height -demoHeigth){
     // 	demo.style.display = "block";
@@ -195,3 +204,11 @@ function showCoords(event) {
     // 	demos.innerHTML = location2;
     // }
 
+function cloze1(){
+    var demo = document.getElementById("demo");
+    demo.style.display ="none"
+}
+function cloze2(){
+    var demos = document.getElementById("demos");
+    demos.style.display ="none"
+}

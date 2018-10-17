@@ -17,8 +17,10 @@ body{
 
 	background-color: lightgrey; 
 }
-.posi{
+#posi{
 	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 #demo{
 	border-radius: 5px;
@@ -40,6 +42,7 @@ body{
 	background-color: aliceblue;
 	border: 1px solid black;
 	margin: 2px;
+	text-align:left;
 
 
 }
