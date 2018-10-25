@@ -29,7 +29,7 @@ class TrialForm(forms.Form):
         'class':'form-control'
         }))
     operator = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=True),widget=Select2Widget(attrs={'class':'form-control'}))
-    operators = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=True),widget=Select2MultipleWidget(attrs={'class':'form-control'}))
+    # operators = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=True),widget=Select2MultipleWidget(attrs={'class':'form-control'}))
 
 
 

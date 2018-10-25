@@ -1,0 +1,46 @@
+{% extends "trialapp/base.html" %}
+
+{% block content %}
+{% csrf_token %}
+        <label>Trials</label></br>
+        <input type="text" id="trials">
+
+        <div id="triallist">
+
+        </div>
+
+        <script>
+            $(document).ready(function(){
+
+                $("#trials").keyup(function(){
+
+                    $.ajax({
+
+                        url:'/trialapp/gettrials/',
+                        type:  'POST',
+                        dataType: 'html',
+                        data: {txt : $('#trials').val(),
+                        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                        },
+                        success: function(data,status) {
+                                $("#triallist").html("");
+                                $("#triallist").fadeIn();
+                                
+                                $("#triallist").html(data);
+
+                        },
+
+
+
+                   });
+
+                       });
+                $(document).click(function(){
+                             $("#triallist").fadeOut();
+                       });
+                });
+
+        </script>
+
+
+ {% endblock content %}
