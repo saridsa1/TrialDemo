@@ -37,7 +37,7 @@
 
           {{ form.media }}
           {{ form.media.css }}
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 
     <body id="page-top">
@@ -67,7 +67,7 @@
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">9+</span>
+            <!--<span class="badge badge-danger">9+</span>-->
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
             <a class="dropdown-item" href="#">Action</a>
@@ -79,7 +79,7 @@
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-envelope fa-fw"></i>
-            <span class="badge badge-danger">7</span>
+            <!--<span class="badge badge-danger">7</span>-->
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
             <a class="dropdown-item" href="{% url 'trialapp:send_mail' %}">Send Mail</a>
@@ -132,7 +132,7 @@
 
       <!-- Bootstrap core JavaScript-->
       <script src={% static 'vendor/jquery/jquery.min.js' %}></script>
-      <script src={% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <!--<script src={% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>-->
 
       <!-- Core plugin JavaScript-->
       <script src={% static 'vendor/jquery-easing/jquery.easing.min.js' %}></script>

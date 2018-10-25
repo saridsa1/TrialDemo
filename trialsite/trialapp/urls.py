@@ -26,6 +26,7 @@ urlpatterns = [
     # Patient
     path('dashboard/', views.Dashboard.as_view(), name='dashboard'),
     path('signup/', views.Signup.as_view(), name='signup'),
+    path('ajaxsignup/', views.AjaxSignup.as_view(), name='ajaxsignup'),
     path('patienttrials/', views.Patient_Trials.as_view(), name='patienttrials'),
     path('patients/', views.Patients.as_view(), name='patients'),
     #enrollment
@@ -37,5 +38,7 @@ urlpatterns = [
     path('forgot/', views.forgot_pass, name='forgot'),
     path('email/', views.send_email, name='email'),
     path('sendmail/', views.SendEmail.as_view(), name='send_mail'),
+    path('ajaxtrials/', views.AjaxTemTrials.as_view(), name='ajaxtrials'),
+    path('gettrials/', views.AjaxTrials, name='gettrials'),
 
 ]

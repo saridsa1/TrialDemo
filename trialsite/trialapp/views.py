@@ -14,7 +14,9 @@ import csv, io
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core import serializers
 
+import json
 class Index(TemplateView):
     template_name = 'trialapp/index.html'
 
@@ -64,18 +66,23 @@ def operator_dashboard(request):
 
 class Signup(CreateView):
     template_name = 'trialapp/signup.html'
-    success_url = 'trialapp:login'
+    success_url = '/trialapp/login/'
+    form_class = SignupForm
+
+class AjaxSignup(CreateView):
+    template_name = 'trialapp/ajaxsignup.html'
+    success_url = '/trialapp/login/'
     form_class = SignupForm
 
 class InvestigatorSignup(CreateView):
     template_name = 'trialapp/signup.html'
-    success_url = 'trialapp:login'
+    success_url = '/trialapp/login/'
     form_class = InvestigatorSignupForm
 
 
 class OperatorSignup(CreateView):
     template_name = 'trialapp/signup.html'
-    success_url = 'trialapp:login'
+    success_url = '/trialapp/investigatordashboard/'
     form_class = OperatorSignupForm
 
 
@@ -86,6 +93,31 @@ class Patients(ListView):
     def get_queryset(self):
         queryset = User.objects.filter(is_staff=False, is_superuser=False)
         return queryset
+
+
+# class AjaxTrials(View):
+#     model = Trial
+#     template_name = 'trialapp/autocomp.html'
+#
+#     def get_queryset(self,query):
+#         # data = Trial.objects.filter(string__icontains = query)
+#         data = Trial.objects.all()
+#         return data
+
+
+def AjaxTrials(request):
+    stxt =request.POST.get('txt')
+    print(stxt)
+    # data = serializers.serialize("json", Trial.objects.filter(title__icontains= stxt))
+    if stxt != '':
+        data=  Trial.objects.filter(title__istartswith = stxt);
+
+        lst =[];
+        for i in data:
+            s={}
+            s['title'] = i.title
+            lst.append(s)
+        return HttpResponse(lst)
 
 
 
@@ -112,6 +144,9 @@ class Add_Trials(FormView):
         return redirect('trialapp:investigator_dashboard')
 
 
+
+class AjaxTemTrials(TemplateView):
+    template_name = 'trialapp/autocomp.html'
 
 
 class Trials(ListView):

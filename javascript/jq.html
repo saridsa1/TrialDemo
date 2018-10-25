@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn1").click(function() {
+                $(".divv").load("dem.txt")
+                });
+
+            $("#btn2").click(function() {
+                $.get("demo.txt", function(data,status){
+                    $("#txt").html(data.data);
+                    alert(data);
+                })
+              });
+            });
+    </script>
+</head>
+<body>
+<div class="divv">
+    <p>abc</p>
+    <p id="txt"></p>
+</div>
+<button id="btn1">load</button>
+<button id="btn2">Get</button>
+<button id="btn3">Post</button>
+</body>
+</html>

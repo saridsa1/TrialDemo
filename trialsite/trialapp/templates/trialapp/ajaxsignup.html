@@ -15,7 +15,7 @@
     <title> Register</title>
 
     <!-- Bootstrap core CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'trialapp/bootstrap.min.css' %}">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'trialapp/bootstrap.min.css' %}">-->
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" type="text/css" href="{% static 'trialapp/all.min.css' %}">
@@ -34,7 +34,7 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">Register an Account</div>
         <div class="card-body">
-          <form method="POST">
+          <form id="frm" method="POST">
             {% csrf_token %}
             <div class="form-group">
               <div class="form-row">
@@ -95,13 +95,30 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{% static 'trialapp/jquery.min.js' %}"></script>
-    <script src="{% static 'trialapp/bootstrap.bundle.min.js' %}"></script>
+    <!--<script src="{% static 'trialapp/jquery.min.js' %}"></script>-->
+    <!--<script src="{% static 'trialapp/bootstrap.bundle.min.js' %}"></script>-->
     <script src="{% static 'trialapp/jquery.easing.min.js' %}"></script>
-
+    <script>
+      $(document).on('submit','#frm',function(e){
+        e.preventDefault();
+        $.ajax({
+          type:"POST",
+          url:'/trialapp/signup/',
+          data:{
+              username:$('#id_username').val(),
+               email:$('#id_email').val(),
+                first_name:$('#id_first_name').val(),
+                 last_name:$('#id_last_name').val(),
+                  password1:$('#id_password1').val(),
+                   password2:$('#id_password2').val(),
+                   csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                  },
+                  success:function(){
+                  alert("created new user");
+                  }
+           });
+        });
+    </script>
   </body>
 
 </html>
-            
-
-            
