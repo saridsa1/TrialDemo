@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'trialapp.middleware.TrialMiddleware'
 ]
 
 ROOT_URLCONF = 'trialsite.urls'
@@ -90,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'trials',
         'USER': 'postgres',
-        'PASSWORD': 'ayaz5553',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
     }

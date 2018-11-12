@@ -240,6 +240,7 @@ def download_header(request):
     cn = []
     for f in cols:
         cn.append(f.name)
+    cn.pop(0)
     writer.writerow(cn)
 
     return response
