@@ -10,7 +10,7 @@ from django_select2.forms import Select2MultipleWidget, Select2Widget
 
 class TrialForm(forms.Form):
     title = forms.CharField(widget=forms.TextInput(attrs={
-        'class':'form-control'
+        'class':'form-control '
         }))
     address = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control'

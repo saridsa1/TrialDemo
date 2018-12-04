@@ -1,13 +1,10 @@
 {% extends "trialapp/base.html" %}
 
 {% block content %}
-<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 90%;margin-left: auto;margin-right: auto;">
+<table class="responsive-table highlight" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 90%;margin-left: auto;margin-right: auto;">
                   <thead>
-                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 163px;">Username</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 254px;">First Name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 118px;">Last Nmae</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 54px;">Email</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 92px;">Actions</th></tr>
+                    <tr role="row"><th>Username</th><th>First Name</th><th>Last Nmae</th><th>Email</th><th>Actions</th></tr>
                   </thead>
-                  <tfoot>
-                    <tr><th rowspan="1" colspan="1">Username</th><th rowspan="1" colspan="1">First Name</th><th rowspan="1" colspan="1">Last Name</th><th rowspan="1" colspan="1">Email</th><th rowspan="1" colspan="1">Actions</th></tr>
-                  </tfoot>
                   <tbody>
                   <tbody>
                   	{% for operator in object_list %}

@@ -2,15 +2,11 @@
 
 {% block content %}
 
-	<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 90%;margin-left: auto;margin-right: auto;">
+	<table class="responsive-table highlight" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 90%;margin-left: auto;margin-right: auto;">
                   <thead>
-                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 163px;">Id</th><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 163px;">Title</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 254px;">Description</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 118px;">Address</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 54px;">City</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 114px;">Country</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 92px;">Pincode</th>
-                    	<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 92px;">Email</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 50px;">Operator</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Salary: activate to sort column ascending" style="width: 92px;">Actions</th></tr>
+                    <tr><th>Id</th><th>Title</th><th>Description</th><th>Address</th><th>City</th><th>Country</th><th>Pincode</th>
+                    	<th>Email</th><th>Operator</th><th>Actions</th></tr>
                   </thead>
-                  <tfoot>
-                    <tr><th rowspan="1" colspan="1">Id</th><th rowspan="1" colspan="1">Title</th><th rowspan="1" colspan="1">Discription</th><th rowspan="1" colspan="1">Address</th><th rowspan="1" colspan="1">City</th><th rowspan="1" colspan="1">Country</th><th rowspan="1" colspan="1">Pincode</th><th rowspan="1" colspan="1">Email</th><th rowspan="1" colspan="1">Operator</th><th rowspan="1" colspan="2">Actions</th></tr>
-                  </tfoot>
-                  <tbody>
                   <tbody>
                   	{% for r in object_list %}
 	                    <tr>

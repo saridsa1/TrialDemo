@@ -3,35 +3,80 @@
 <link rel="stylesheet" href="{% static 'trialapp/style.css' %}">
 {% block content %}
 <div class="container">
+     <h6 class="display-4">Add Trial</h6>
  <form method="POST">
      {%csrf_token%}
-     	<label>Organiser</label>
-		<input class="form-control" disabled type="text" name="organiser" value={{user}}>
-		<!--<label>Operator</label>-->
-	 	<!--{{form.operator}}-->
-	 <!--&lt;!&ndash;<label>Operators</label>&ndash;&gt;-->
-	 	<!--&lt;!&ndash;{{form.operators}}&ndash;&gt;-->
-		<!--<label>Title</label>-->
-		<!--{{form.title}}-->
-		<!--<label>Address</label>		-->
-		<!--{{form.address}}-->
-		<!--<label>City</label>-->
-		<!--{{form.city}}-->
-		<!--<label>Country</label>-->
-		<!--{{form.country}}-->
-		<!--<label>Pincode</label>-->
-		<!--{{form.pincode}}-->
-		<!--<label>Discription</label>-->
-		<!--{{form.discription}}-->
-		<!--<label>Email</label>-->
-		<!--{{form.email}}-->
-		<!---->
-		<!---->
-	 {{form.as_p}}
-     <input type="submit" class="btn bg-success btn-lg font-weight-bold mt-1" value="SUBMIT">
-     <input type="reset" class="btn bg-success btn-lg font-weight-bold mt-1" value="RESET">
+
+     <div class="row">
+                <div class="input-field col s6">
+                 <label>Organiser</label>
+		         <input disabled type="text" name="organiser" value={{user}}>
+                </div>
+
+                 <div class="col s6">
+                 <label>Operator</label>
+                    {{ form.operator}}
+                </div>
+            </div>
+     <div class="row">
+                 <div class="input-field col s6">
+                  <label>Title</label>
+                    {{ form.title}}
+                </div>
+         <div class="input-field col s6">
+                  <label>Email</label>
+                    {{ form.email}}
+                </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                  <label>Address</label>
+                    {{ form.address}}
+                </div>
+                <div class="input-field col s6">
+                  <label>City</label>
+                    {{ form.city}}
+                </div>
+              </div>
+            <div class="row">
+                <div class="input-field col s6">
+                  <label>Country</label>
+                    {{ form.country}}
+                </div>
+                <div class="input-field col s6">
+                  <label>Pincode</label>
+                    {{ form.pincode}}
+                </div>
+              </div>
+     <div class="row">
+                <div class="col s6">
+                  <label>Discription</label>
+                    {{ form.discription}}
+                </div>
+
+              </div>
+     <div class="row">
+                <div class="input-field col s6">
+                              <input type="submit" class="btn btn-block btn-success mt-3" name="submit">
+
+                </div>
+                <div class="input-field col s6">
+                              <input type="reset" class="btn btn-block btn-primary mt-3" name="reset">
+
+                </div>
+              </div>
  </form>
 </div>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
 
+  // Or with jQuery
 
+  $(document).ready(function(){
+    $('#id_operator').formSelect();
+  });
+</script>
 {% endblock content %}

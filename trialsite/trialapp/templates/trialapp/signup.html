@@ -1,107 +1,64 @@
+{% extends "trialapp/base.html" %}
 {% load static %}
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title> Register</title>
-
-    <!-- Bootstrap core CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'trialapp/bootstrap.min.css' %}">
-
-    <!-- Custom fonts for this template-->
-    <link rel="stylesheet" type="text/css" href="{% static 'trialapp/all.min.css' %}">
-
-    <!-- Custom styles for this template-->
-    <link href="{% static 'trialapp/sb-admin.css' %}" rel="stylesheet">
-
-    <link href="{% static 'trialapp/style.css' %}" rel="stylesheet">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  </head>
-
-  <body class="bg-dark">
-
-    <div class="container">
-      <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Register an Account</div>
-        <div class="card-body">
-          <form method="POST">
+{% block content %}
+<div class="container mt-5">
+  <h3 class="display-4">Operator Signup</h3>
+          <form method="POST" class="col s12">
             {% csrf_token %}
-            <div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
+            <div class="row">
+                <div class="input-field col s6">
                  <label>Username</label>
-                  <div class="form-label-group">
                     {{ form.username}}
-                  </div>
                 </div>
-                <div class="col-md-6">
-                  <label>Email</label>
-                  <div class="form-label-group">
-                    {{ form.email}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
-                  <label>First Name</label>
-                  <div class="form-label-group">
-                    {{ form.first_name}}
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label>Last Name</label>
-                  <div class="form-label-group">
-                    {{ form.last_name}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
-                  <label>Password</label>
-                  <div class="form-label-group">
-                    {{ form.password1}}
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label>Confirm Password</label>
-                  <div class="form-label-group">
-                    {{ form.password2}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <input type="submit" class="btn btn-success mt-3" name="submit">
-            <input type="reset" class="btn btn-primary mt-3" name="reset">
-          </form>
-          <div class="text-center">
 
-          </div>
-        </div>
-      </div>
-    </div>
+                 <div class="input-field col s6">
+                  <label>Email</label>
+                    {{ form.email}}
+                </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                  <label>First Name</label>
+                    {{ form.first_name}}
+                </div>
+                <div class="input-field col s6">
+                  <label>Last Name</label>
+                    {{ form.last_name}}
+                </div>
+              </div>
+            <div class="row">
+                <div class="input-field col s6">
+                  <label>Password</label>
+                    {{ form.password1}}
+                </div>
+                <div class="input-field col s6">
+                  <label>Confirm Password</label>
+                    {{ form.password2}}
+                </div>
+              </div>
+            <div class="row">
+                <div class="input-field col s6">
+                              <input type="submit" class="btn btn-block btn-success mt-3" name="submit">
+
+                </div>
+                <div class="input-field col s6">
+                              <input type="reset" class="btn btn-block btn-primary mt-3" name="reset">
+
+                </div>
+              </div>
+          </form>
+  </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'trialapp/jquery.min.js' %}"></script>
     <script src="{% static 'trialapp/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'trialapp/jquery.easing.min.js' %}"></script>
 
-  </body>
+{% endblock content %}
+  <!--</body>-->
 
-</html>
+<!--</html>-->
             
 
             
