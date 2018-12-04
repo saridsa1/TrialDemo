@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import Permission, User
 from tinymce import models as tinymce_models
 class Trial(models.Model):
-
 	title = models.CharField(max_length=100)
 	address = models.CharField(max_length=50)
 	city = models.CharField(max_length=20)
@@ -15,6 +14,7 @@ class Trial(models.Model):
 	email = models.EmailField()
 	operator =models.CharField(max_length=100)
 	organiser =models.CharField(max_length=100)
+
 
 class Enrollment(models.Model):
     patient_username = models.CharField(max_length=100)
